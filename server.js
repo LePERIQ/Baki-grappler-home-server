@@ -1,5 +1,6 @@
 const express = require('express');
 const morgan = require('morgan');
+const videoApiRoute = require('./routers/videoApiRoute');
 
 
 require('dotenv').config();
@@ -12,6 +13,8 @@ app.use(express.json());
 
 app.use(morgan('dev'))
 
+
+app.use('/api/player' ,videoApiRoute)
 
 app.listen(PORT, () => {
     console.log(`Server running on ${PORT}` )
